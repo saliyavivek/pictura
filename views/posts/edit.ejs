@@ -1,0 +1,26 @@
+<% layout("layouts/boilerplate") -%>
+
+<body>
+    <div class="row mt-4">
+        <div class="col-8 offset-2">
+            <h2>Edit Post</h2>
+            <form method="POST" novalidate class="needs-validation" action="/posts/<%= post._id %>?_method=PUT" enctype="multipart/form-data">
+        
+                <label for="title" class="form-label">Title</label>
+                <input type="text" name="post[title]" id="title" class="form-control" value="<%= post.title %>" required/> <br><br>
+        
+                <label for="description" class="form-label">Description</label>
+                <textarea name="post[description]" id="description" class="form-control" cols="30" rows="5" required><%= post.description %></textarea> <br><br>
+        
+                <div class="mb-3">
+                    <img src="<%= originalPicUrl %>" height="100px" width="250px">
+                </div>
+
+                <label class="form-label">Upload new photo</label>
+                <input type="file" name="post[image]" class="form-control" /> <br><br>
+        
+                <button class="btn btn-primary edit-btn">Edit</button>
+            </form>
+        </div>
+    </div>
+</body>

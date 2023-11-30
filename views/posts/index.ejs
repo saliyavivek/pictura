@@ -1,0 +1,19 @@
+<% layout("layouts/boilerplate") -%>
+
+<body>
+    <h2>All Pins</h2>
+    <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1">
+        <% for (let post of allPosts) { %>
+            <div class="card post-card" style="width: 20rem;">
+                <a href="/posts/<%= post._id %>" class="post-link">
+                    <img src="<%= post.image.url %>" class="card-img-top" alt="post-img" style="height: 20rem;">
+                </a>
+                <div class="card-body">
+                        <p class="card-text">
+                            <%= post.title %>
+                        </p>
+                </div>
+            </div>
+        <% } %>
+    </div>
+</body>
