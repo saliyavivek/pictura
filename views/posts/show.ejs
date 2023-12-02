@@ -1,15 +1,16 @@
 <% layout("layouts/boilerplate") -%>
 <body>
     <div class="row">
-        <div class="col-9 offset-2">
+        <div class="col-9 offset-2 mb-4">
                 <div class="show">
                     <div class="show-img">
                         <img src="<%= post.image.url %>" alt="">
                     </div>
                     <div class="show-details">
-                        <h2>By <i><%= post.owner.username %></i></h2>
-                        <h3><%= post.title %></h3>
-                        <p><%= post.description %></p>
+                        <h3 class="show-title"><%= post.title %></h3>
+                        <span class="show-owner">@<%= post.owner.username %></span>
+                        <p class="show-email"><%= post.owner.email  %></p>
+                        <p class="show-desc"><%= post.description %></p>
                         <p><%= post.createdAt.toString().split(" ").slice(0, 5).join(" ") %></p>
 
                         <% if(currUser && currUser._id.equals(post.owner._id)) { %>
@@ -30,7 +31,7 @@
                             <form action="/posts/<%= post._id %>/comments" method="POST" novalidate class="needs-validation">
                                 <div>
                                     <label for="comment">Comment</label>
-                                    <textarea name="comment[comment]" id="comment" cols="30" rows="5" class="form-control" required></textarea>
+                                    <textarea name="comment[comment]" id="comment" cols="30" rows="2" class="form-control" required></textarea>
                                 </div>
                                 <br>
                                 <button class="btn btn-outline-dark">Add</button>
@@ -40,7 +41,7 @@
                         <% } %>
 
                         <div>
-                            <h4>All Comments</h4>
+                            <h4>Comments</h4>
                             <% for(i of post.comments) { %>
                                 <div class="card mb-3 p-2">
                                     <div class="card-body">

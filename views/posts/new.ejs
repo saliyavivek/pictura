@@ -2,8 +2,8 @@
 <body>
     <div class="row mt-4">
         <div class="col-8 offset-2">
-            <h2>Create new post</h2>
-            <form method="POST" action="/posts" novalidate class="needs-validation" enctype="multipart/form-data">
+            <h4>Create a pin</h4>
+            <!-- <form method="POST" action="/posts" novalidate class="needs-validation" enctype="multipart/form-data">
                 <label for="title" class="form-label">Title</label>
                 <input type="text" name="post[title]" id="title" class="form-control" placeholder="Enter title" required/> <br><br>
         
@@ -14,7 +14,26 @@
                 <input type="file" name="post[image]" class="form-control" required/> <br><br>
         
                 <button class="btn btn-success">Create</button>
-            </form>
+            </form> -->
+            <form method="POST" action="/posts" novalidate class="needs-validation" enctype="multipart/form-data">
+            <div class="createForm">
+                <div class="create-left">
+                    <!-- <label class="form-label">Upload photo</label>
+                    <input type="file" name="post[image]" class="form-control" required/> -->
+
+                    <label for="images" class="drop-container" id="dropcontainer">
+                        <span class="drop-title">Drop files here</span>
+                        or
+                        <input type="file" name="post[image]" id="images" required>
+                    </label>
+                </div>
+                <div class="create-right">
+                    <input type="text" name="post[title]" id="title" placeholder="Add your title" required/>
+                    <input name="post[description]" id="description" placeholder="Tell everyone what your Pin is about" required>
+                    <button class="btn btn-success">Create</button>
+                </div>
+            </div>
+        </form>
         </div>
     </div>
 </body>

@@ -53,17 +53,45 @@ body {
 /* Show  */
 .show {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-top: 3rem;
 }
 
 .show-img img {
-    height: 80vh;
-    width: 30vw;
+    height: 60vh;
+    width: 384px;
     object-fit: cover;
     border-radius: 1rem;
     margin-right: 2rem;
+    margin-left: -1rem;
+}
+
+.show-details {
+    margin-top: 1rem;
+    height: 500px;
+    overflow: scroll;
+    position: relative;
+}
+
+.show-title {
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 1.7rem;
+}
+
+.show-owner {
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+
+.show-email {
+    font-size: 0.9rem;
+    margin-bottom: 1.7rem;
+}
+
+.show-desc {
+    color: rgb(75, 75, 75);
 }
 
 .show-btns {
@@ -84,5 +112,122 @@ body {
 .input-box img {
     width: 30px;
     cursor: pointer;
-    margin-left: -40px;
+    margin-left: -4 0px;
+}
+
+/* create form  */
+.drop-container {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px dashed #555;
+    color: #444;
+    cursor: pointer;
+    transition: background .2s ease-in-out, border .2s ease-in-out;
+  }
+  
+  .drop-container:hover {
+    background: #eee;
+    border-color: #111;
+  }
+  
+  .drop-container:hover .drop-title {
+    color: #222;
+  }
+  
+  .drop-title {
+    color: #444;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    transition: color .2s ease-in-out;
+  }
+
+.createForm {
+    margin-top: 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.create-left label {
+    height: 450px;
+}
+
+.create-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.create-right input {
+    width: 26rem;
+    font-size: 1.5rem;
+}
+
+.create-right input:focus {
+    outline: none;
+}
+
+.create-right #title, #description {
+    border: 0;
+    border-bottom: 1px solid;
+    border-radius: 0;
+}
+
+.create-right #title::placeholder {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.create-right #description {
+    font-size: 1rem;
+}
+
+.create-right button {
+    align-self: flex-start;
+}
+
+
+
+
+
+@media screen and (max-width: 1140px) {
+    .show {
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .show-img {
+        margin-bottom: 4em;
+    }
+
+    .show-img img {
+        width: 600px;
+        height: 30vh;
+    }
+
+    .show-details {
+        margin-left: 1.4rem;
+    }
+}
+
+@media screen and (max-width: 670px){
+    .show-img img {
+        width: 370px;
+        height: 50vh;
+    }
+
+    .show-details {
+        margin-left: -1rem;
+    }
 }
