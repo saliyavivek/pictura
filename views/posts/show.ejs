@@ -1,61 +1,80 @@
 <% layout("layouts/boilerplate") -%>
 <body>
-    <div class="row">
-        <div class="col-9 offset-2 mb-4">
-                <div class="show">
-                    <div class="show-img">
-                        <img src="<%= post.image.url %>" alt="">
-                    </div>
-                    <div class="show-details">
-                        <h3 class="show-title"><%= post.title %></h3>
-                        <span class="show-owner">@<%= post.owner.username %></span>
-                        <p class="show-email"><%= post.owner.email  %></p>
-                        <p class="show-desc"><%= post.description %></p>
-                        <p><%= post.createdAt.toString().split(" ").slice(0, 5).join(" ") %></p>
-
-                        <% if(currUser && currUser._id.equals(post.owner._id)) { %>
-                        <div class="show-btns">
-                            <a href="/posts/<%= post._id %>/edit" class="btn btn-primary">Edit</a>
-                            <form method="POST" action="/posts/<%= post._id %>?_method=DELETE">
-                                <button class="btn btn-danger">Delete</button>
-                            </form>  
-                        </div>
-                        <% } %>
-
-                        <hr>
-
-                        <% if(currUser) { %>
-
-                        <div>
-                            <h4>Add a comment</h4>
-                            <form action="/posts/<%= post._id %>/comments" method="POST" novalidate class="needs-validation">
-                                <div>
-                                    <label for="comment">Comment</label>
-                                    <textarea name="comment[comment]" id="comment" cols="30" rows="2" class="form-control" required></textarea>
-                                </div>
-                                <br>
-                                <button class="btn btn-outline-dark">Add</button>
-                            </form>
-                        </div>
-                        <hr>
-                        <% } %>
-
-                        <div>
-                            <h4>Comments</h4>
-                            <% for(i of post.comments) { %>
-                                <div class="card mb-3 p-2">
-                                    <div class="card-body">
-                                        <h5 class="card-title"><%= i.author.username %></h5>
-                                        <p class="card-text"><%= i.comment  %></p>
-                                    </div>
-                                    <form method="POST" action="/posts/<%= post._id %>/comments/<%= i._id %>?_method=DELETE">
-                                        <button class="btn btn-danger btn-sm mt-2">Delete</button>
-                                    </form>
-                                </div>
-                            <% } %>
-                        </div>
-                    </div>
-                </div>
+  <div class="row">
+    <div class="col-9 offset-2 mb-4">
+      <div class="show">
+        <div class="show-img">
+          <img src="<%= post.image.url %>" alt="" />
         </div>
+        <div class="show-details" style="padding-right: 3rem">
+          <h3 class="show-title"><%= post.title %></h3>
+          <span class="show-owner">@<%= post.owner.username %></span>
+          <p class="show-email"><%= post.owner.email %></p>
+          <p class="show-desc"><%= post.description %></p>
+          <p>
+            <%= post.createdAt.toString().split(" ").slice(0, 5).join(" ") %>
+          </p>
+
+          <% if(currUser && currUser._id.equals(post.owner._id)) { %>
+          <div class="show-btns">
+            <a href="/posts/<%= post._id %>/edit" class="btn btn-primary"
+              >Edit</a
+            >
+            <form method="POST" action="/posts/<%= post._id %>?_method=DELETE">
+              <button class="btn btn-danger">Delete</button>
+            </form>
+          </div>
+          <% } %>
+
+          <hr />
+
+          <% if(currUser) { %>
+
+          <div>
+            <h4>Add a comment</h4>
+            <form
+              action="/posts/<%= post._id %>/comments"
+              method="POST"
+              novalidate
+              class="needs-validation"
+            >
+              <div>
+                <label for="comment">Comment</label>
+                <textarea
+                  name="comment[comment]"
+                  id="comment"
+                  cols="30"
+                  rows="2"
+                  class="form-control"
+                  required
+                ></textarea>
+              </div>
+              <br />
+              <button class="btn btn-outline-dark">Add</button>
+            </form>
+          </div>
+          <hr />
+          <% } %>
+
+          <div>
+            <h4>Comments</h4>
+            <% for(i of post.comments) { %>
+            <div class="card mb-3 p-2">
+              <div class="card-body">
+                <h5 class="card-title"><%= i.author.username %></h5>
+                <p class="card-text"><%= i.comment %></p>
+              </div>
+              <form
+                method="POST"
+                action="/posts/<%= post._id %>/comments/<%= i._id %>?_method=DELETE"
+              >
+                <button class="btn btn-danger btn-sm mt-2">Delete</button>
+              </form>
+            </div>
+            <% } %>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </body>
