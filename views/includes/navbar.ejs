@@ -1,47 +1,60 @@
 <nav class="navbar navbar-expand-md bg-body-light sticky-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="/posts">
-          <i class="fa-brands fa-pinterest"></i>
-          Pinterest
-        </a>
-        <!-- <a class="navbar-brand" href="/posts">Pinterest</a> -->
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/posts">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/posts/new">Create</a>
-          </li>
-        </ul>
-        <form class="container" role="search">
-          <div class="input-group">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
-          </div>
-        </form>
-        <ul class="navbar-nav">
-          <% if(!currUser) { %>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/login">Log in</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/signup">Sign up</a>
-          </li>
-          <% } %>
-          <% if(currUser) { %>
-          <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="/logout">Log out</a>
-          </li>
-          <% } %>
-        </ul>
-        <!-- <form class="d-flex" role="search">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/posts">
+      <i class="fa-brands fa-pinterest"></i>
+      Pinterest
+    </a>
+    <!-- <a class="navbar-brand" href="/posts">Pinterest</a> -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/posts">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/posts/new">Create</a>
+        </li>
+      </ul>
+      <form class="container" role="search" action="/posts/search" method="GET">
+        <div class="input-group">
+          <input
+            class="form-control me-2"
+            type="search"
+            placeholder="Search the excat title"
+            aria-label="Search"
+            name="title"
+          />
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </div>
+      </form>
+      <ul class="navbar-nav">
+        <% if(!currUser) { %>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/login">Log in</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/signup">Sign up</a>
+        </li>
+        <% } %> <% if(currUser) { %>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/logout">Log out</a>
+        </li>
+        <% } %>
+      </ul>
+      <!-- <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form> -->
-      </div>
     </div>
+  </div>
 </nav>

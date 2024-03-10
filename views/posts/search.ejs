@@ -1,0 +1,42 @@
+<% layout("layouts/boilerplate") -%>
+
+<body>
+  <% if(searchResults.length) { %>
+  <h2 style="margin: 1rem 0 1.5rem 0">
+    <%= searchResults.length %> result(s) found
+  </h2>
+  <div class="wrapper row row-cols-lg-4 row-cols-md-2 row-cols-sm-1">
+    <% for (let post of searchResults) { %>
+
+    <div class="card">
+      <img src="<%= post.image.url %>" />
+      <div class="info">
+        <h1><%= post.title %></h1>
+        <p><%= post.description %></p>
+        <a href="/posts/<%= post._id %>"><button>Explore</button></a>
+      </div>
+    </div>
+    <% } %>
+  </div>
+  <% } else { %>
+  <h2 style="margin: 15rem 32rem">No pins found!!</h2>
+  <% } %>
+</body>
+
+<!-- <div class="row row-cols-lg-4 row-cols-md-2 row-cols-sm-1">
+  <% for (let post of searchResults) { %>
+  <div class="card post-card" style="width: 20rem">
+    <a href="/posts/<%= post._id %>" class="post-link">
+      <img
+        src="<%= post.image.url %>"
+        class="card-img-top"
+        alt="post-img"
+        style="height: 20rem"
+      />
+    </a>
+    <div class="card-body">
+      <p class="card-text"><%= post.title %></p>
+    </div>
+  </div>
+  <% } %>
+</div> -->
