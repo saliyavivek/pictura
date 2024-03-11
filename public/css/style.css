@@ -250,9 +250,9 @@ body {
   
   .wrapper {
     display: flex;
-    width: 90%;
-    justify-content: space-around;
-    /* flex-wrap: wrap; */
+    width: 100%;
+    /* justify-content: space-between; */
+    flex-wrap: wrap;
   }
   
   .wrapper>.card {
@@ -260,7 +260,7 @@ body {
     height: 360px;
     border-radius: 15px;
     padding: 1.5rem;
-    margin: 2rem 0;
+    margin: 2rem 0.6rem;
     background: white;
     position: relative;
     display: flex;
