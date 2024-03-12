@@ -1,39 +1,65 @@
 <% layout("layouts/boilerplate") -%>
 <body>
-    <div class="row mt-4">
-        <div class="col-8 offset-2">
-            <h4>Create a pin</h4>
-            <!-- <form method="POST" action="/posts" novalidate class="needs-validation" enctype="multipart/form-data">
-                <label for="title" class="form-label">Title</label>
-                <input type="text" name="post[title]" id="title" class="form-control" placeholder="Enter title" required/> <br><br>
-        
-                <label for="description" class="form-label">Description</label>
-                <textarea name="post[description]" id="description" class="form-control" cols="30" rows="10" required>Enter description</textarea> <br><br>
-        
-                <label class="form-label">Upload photo</label>
-                <input type="file" name="post[image]" class="form-control" required/> <br><br>
-        
-                <button class="btn btn-success">Create</button>
-            </form> -->
-            <form method="POST" action="/posts" novalidate class="needs-validation" enctype="multipart/form-data">
-            <div class="createForm">
-                <div class="create-left">
-                    <!-- <label class="form-label">Upload photo</label>
-                    <input type="file" name="post[image]" class="form-control" required/> -->
+  <div class="row mt-4">
+    <div class="col-8 offset-2">
+      <h4>Create a pin</h4>
+      <form
+        method="POST"
+        action="/posts"
+        novalidate
+        class="needs-validation"
+        enctype="multipart/form-data"
+      >
+        <div class="createForm">
+          <div class="create-left">
+            <label for="images" class="drop-container" id="dropcontainer">
+              <img id="blah" src="#" alt="your image" style="display: none" />
+              <input
+                type="file"
+                name="post[image]"
+                id="images"
+                class="custom-file-input"
+                onchange="readURL(this)"
+                required
+              />
 
-                    <label for="images" class="drop-container" id="dropcontainer">
-                        <span class="drop-title">Drop files here</span>
-                        or
-                        <input type="file" name="post[image]" id="images" required>
-                    </label>
-                </div>
-                <div class="create-right">
-                    <input type="text" name="post[title]" id="title" placeholder="Add your title" required/>
-                    <input name="post[description]" id="description" placeholder="Tell everyone what your Pin is about" required>
-                    <button class="btn btn-success">Create</button>
-                </div>
-            </div>
-        </form>
+              <p style="text-align: center">
+                We recommend using .jpg, .png or .jpeg images of less than 5MB.
+              </p>
+            </label>
+          </div>
+          <div class="create-right">
+            <input
+              type="text"
+              name="post[title]"
+              id="title"
+              placeholder="Add your title"
+              required
+            />
+            <input
+              name="post[description]"
+              id="description"
+              placeholder="Tell everyone what your Pin is about"
+              required
+            />
+            <button class="btn btn-success">Create</button>
+          </div>
         </div>
+      </form>
     </div>
+  </div>
+  <script>
+    function readURL(input) {
+      if (input.files && input.files[0]) {
+        var reader = new FileReader();
+
+        reader.onload = function (e) {
+          $("#blah").css("display", "block");
+          $("#blah").attr("src", e.target.result).width(300).height(300);
+        };
+
+        reader.readAsDataURL(input.files[0]);
+      }
+    }
+  </script>
 </body>
