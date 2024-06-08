@@ -26,7 +26,16 @@
           />
           <img src="../images/eye-close.png" alt="eye-close" id="eyeicon" />
         </div>
-        <button class="btn btn-danger mt-3">Log in</button>
+        <div class="btn-container">
+          <button class="btn btn-danger mt-3">Log in</button>
+          <button
+            class="btn btn-success mt-3"
+            onclick="getDemoCreds();"
+            type="button"
+          >
+            Get credentials
+          </button>
+        </div>
       </form>
     </div>
   </div>
@@ -36,13 +45,18 @@
     let password = document.getElementById("password");
 
     eyeicon.onclick = function () {
-        if(password.type == "password") {
-            password.type = "text";
-            eyeicon.src = "../images/eye-open.png";
-        } else {
-            password.type = "password";
-            eyeicon.src = "../images/eye-close.png";
-        }
+      if (password.type == "password") {
+        password.type = "text";
+        eyeicon.src = "../images/eye-open.png";
+      } else {
+        password.type = "password";
+        eyeicon.src = "../images/eye-close.png";
+      }
     };
+
+    function getDemoCreds() {
+      document.getElementById("username").value = "demo1";
+      document.getElementById("password").value = "demo1";
+    }
   </script>
 </body>
