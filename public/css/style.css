@@ -27,14 +27,13 @@ body {
     align-items: center;
 }
 
-/* .fa-pinterest {
-    font-size: 32px;
-    color:#e60023;
-} */
-
 .footer {
     height: 5rem;
     margin-top: 2rem;
+}
+
+.footer a {
+    color: inherit;
 }
 
 .post-card {
